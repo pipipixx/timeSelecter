@@ -8,6 +8,7 @@
 npm install timeselecter --save
 
 import echarts from "echarts"
+
 import timeSelecter from "timeselecter"
 
 timeSelecter.init(echarts, domEle, (res)=> {
