@@ -6,8 +6,8 @@ timeSelecter.init = function(echarts, dom, cb) {
 		console.error('请传入正确的eharts')
 		return
 	}
-	
-	const myChart = echarts.init(container)
+
+	const myChart = echarts.init(dom)
 	const zr = myChart.getZr()
 	let w = zr.getWidth()
 	let h = zr.getHeight()
@@ -48,7 +48,7 @@ timeSelecter.init = function(echarts, dom, cb) {
 		changeColor()
 		cb(selectedRect)
 	})
-	
+
 	// 鼠标事件
 	let startX
 	let startY
@@ -75,8 +75,8 @@ timeSelecter.init = function(echarts, dom, cb) {
 				height: 0,
 			},
 			style: {
-				fill: '#0079b6',
-				opacity: 0.6
+				fill: '#00aaff',
+				opacity: 1
 			},
 			zlevel: -1 //不放到下层,up事件的target是kuang
 		})
@@ -134,7 +134,7 @@ timeSelecter.init = function(echarts, dom, cb) {
 		}
 		// 改变颜色
 		changeColor()
-		
+
 		// 打印选择的方块
 		// console.log(selectedRect)
 		cb(selectedRect)
@@ -152,20 +152,20 @@ timeSelecter.init = function(echarts, dom, cb) {
 			})
 		}
 	})
-	
+
 	//改变颜色
 	function changeColor() {
 		for (let i in allRect) {
 			allRect[i].attr({
 				style: {
-					fill: '#cfcfcf',
+					fill: '#fff',
 				}
 			})
 		}
 		selectedRect.forEach(v => {
 			allRect[v].attr({
 				style: {
-					fill: '#0079b6',
+					fill: '#00aaff',
 				}
 			})
 		})
@@ -173,13 +173,13 @@ timeSelecter.init = function(echarts, dom, cb) {
 
 	// 数组交集
 	function arrJiaoji(arr1, arr2) {
-		arr = arr1.filter(function(num) {
+		let arr = arr1.filter(function(num) {
 			return arr2.indexOf(num) !== -1
 		})
 		return arr
 	}
 
-	// 数组差集 
+	// 数组差集
 	function arrChaji(arr1, arr2) {
 		let arr = arr1.filter((v) => {
 			return arr2.indexOf(v) === -1
@@ -198,10 +198,10 @@ timeSelecter.init = function(echarts, dom, cb) {
 				height: height || rectHeight,
 			},
 			style: {
-				fill: '#cfcfcf',
-				opacity: 0.6,
+				fill: '#fff',
+				opacity: 0.8,
 				text: text || '',
-				stroke: '1px solid #000'
+				stroke: '1px solid #191919'
 			},
 			cursor: click ? 'pointer' : 'default',
 			onclick: click
