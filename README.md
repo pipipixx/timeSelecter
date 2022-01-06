@@ -4,3 +4,12 @@
 可以自适应传入的dom元素大小，但太小的话体验不好
 # 界面
 ![image](https://github.com/pipipixx/timeSelecter/blob/main/interface.png)
+# use
+npm install timeselecter --save
+
+import echarts from "echarts"
+import timeSelecter from "timeselecter"
+
+timeSelecter.init(echarts, domEle, (res)=> {
+  console.log(res)
+})
