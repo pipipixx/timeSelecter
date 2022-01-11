@@ -7,8 +7,8 @@ timeSelecter.init = function(echarts, dom, cb) {
 		return
 	}
 
-	const myChart = echarts.init(dom)
-	const zr = myChart.getZr()
+	dom.style.backgroundColor = '#fff'
+	const zr = echarts.zrender.init(dom)
 	let w = zr.getWidth()
 	let h = zr.getHeight()
 
@@ -173,8 +173,8 @@ timeSelecter.init = function(echarts, dom, cb) {
 
 	// 数组交集
 	function arrJiaoji(arr1, arr2) {
-		let arr = arr1.filter(function(num) {
-			return arr2.indexOf(num) !== -1
+		let arr = arr1.filter((v) => {
+			return arr2.indexOf(v) !== -1
 		})
 		return arr
 	}
@@ -199,9 +199,9 @@ timeSelecter.init = function(echarts, dom, cb) {
 			},
 			style: {
 				fill: '#fff',
-				opacity: 0.8,
+				opacity: 0.6,
 				text: text || '',
-				stroke: '1px solid #191919'
+				stroke: '#c6c6c6'
 			},
 			cursor: click ? 'pointer' : 'default',
 			onclick: click
